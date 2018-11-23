@@ -1,9 +1,11 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
   tagName: 'li',
   classNames: ['product-card'],
+  cart: service('shopping-cart'),
 
   price: computed('product.price', function() {
     return this.product.price.toFixed(2);
@@ -18,5 +20,11 @@ export default Component.extend({
     if (installments === 0) return;
 
     return `ou ${installments} x ${currency} ${price}`;
-  })
+  }),
+
+  actions: {
+    addToCart() {
+      this.cart.add(this.product);
+    }
+  }
 });
