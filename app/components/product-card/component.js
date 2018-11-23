@@ -11,7 +11,7 @@ export default Component.extend({
     return this.product.price.toFixed(2);
   }),
 
-  installments: computed('product.price', 'product.installments', function() {
+  installments: computed('product.{price,installments}', function() {
     let fullPrice = this.product.price;
     let currency = this.product.currencyFormat;
     let installments = this.product.installments;
