@@ -1,4 +1,12 @@
-<img src="img/product-image.jpg" alt="Product Image">
+<img src="img/product-image.jpg"
+     class="product-card__image"
+     alt="Product Image">
 
-{{product.title}}
-{{product.currencyFormat}} {{product.price}}
+<p class="product-card__title">{{product.title}}</p>
+
+<span class="product-card__separator"></span>
+
+<p class="product-card__price">
+  <span class="product-card__currency">{{product.currencyFormat}}</span>
+  <span class="product-card__value">{{product.price}}</span>
+</p>
