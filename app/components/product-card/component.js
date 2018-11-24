@@ -23,8 +23,8 @@ export default Component.extend({
   }),
 
   actions: {
-    addToCart() {
-      this.cart.add(this.product);
+    addToCart(size) {
+      this.cart.add(this.product, size);
     },
 
     displaySizes() {
