@@ -7,8 +7,10 @@ export default Component.extend({
   classNames: ['cart-icon'],
   cart: service('shopping-cart'),
 
-  counter: computed('cart.items.[]', function() {
-    return this.cart.items.length;
+  counter: computed('cart.items.@each.amount', function() {
+    return this.cart.items.reduce((acc, item) => {
+      return acc + item.amount;
+    }, 0);
   }),
 
   imgSrc: computed('white', function() {
