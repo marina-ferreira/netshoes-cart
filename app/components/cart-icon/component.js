@@ -13,5 +13,10 @@ export default Component.extend({
 
   imgSrc: computed('white', function() {
     return this.white ? 'img/bag.png' : 'img/bag-black.png'
-  })
+  }),
+
+  click() {
+    let cart = document.querySelector('.shopping-cart');
+    cart.classList.toggle('shopping-cart--visible');
+  }
 });

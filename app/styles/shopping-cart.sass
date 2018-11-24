@@ -6,6 +6,27 @@
   padding: 50px 20px
   position: absolute
   background: #202025
+  transform: translateX(100%)
+  transition: transform .5s ease
+
+  &--visible
+    transform: translateX(0)
+
+  &__close
+    color: #fff
+    position: absolute
+    top: 5px
+    right: 20px
+    transform: rotate(45deg)
+    font-size: 28px
+    cursor: pointer
+    transition: all .3s
+
+    &:hover
+      color: #db0707
+
+    &:active
+      color: #fff
 
   &-header
     display: flex

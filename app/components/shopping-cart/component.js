@@ -6,4 +6,10 @@ export default Component.extend({
   tagName: 'div',
   classNames: ['shopping-cart'],
   cart: service('shopping-cart'),
+
+  actions: {
+    closeCart() {
+      this.element.classList.remove('shopping-cart--visible');
+    }
+  }
 });
