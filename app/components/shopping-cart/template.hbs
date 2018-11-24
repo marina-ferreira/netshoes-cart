@@ -19,6 +19,10 @@
       </div>
 
       <p class="shopping-cart__item__price">{{item.price}}</p>
+
+      <div class="shopping-cart__item-overlay">
+        <span class="shopping-cart__item__delete" {{action "deleteItem" item}}>+</span>
+      </div>
     </li>
   {{/each}}
 </ul>

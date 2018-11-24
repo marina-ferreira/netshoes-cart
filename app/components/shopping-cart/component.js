@@ -10,6 +10,10 @@ export default Component.extend({
   actions: {
     closeCart() {
       this.element.classList.remove('shopping-cart--visible');
+    },
+
+    deleteItem(item) {
+      this.cart.remove(item);
     }
   }
 });
