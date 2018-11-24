@@ -29,8 +29,8 @@
 <div class="shopping-cart-total">
   <p class="shopping-cart-total__title">Subtotal</p>
 
-  <div class="shopping-cart-total-price">
-    <p class="shopping-cart-total__value">R$ 379,90</p>
+  <div class="shopping-cart-total-wrapper">
+    {{format-currency "R$" totalPrice "shopping-cart-total__"}}
     <p class="shopping-cart-total__installments">ou em até 10 x R$ 37,99</p>
   </div>
 </div>

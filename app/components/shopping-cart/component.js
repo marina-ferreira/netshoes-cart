@@ -7,6 +7,12 @@ export default Component.extend({
   classNames: ['shopping-cart'],
   cart: service('shopping-cart'),
 
+  totalPrice: computed('cart.items.{[],@each.amount}', function() {
+    return this.cart.items.reduce((acc, item) => {
+      return acc + item.price * item.amount;
+    }, 0);
+  }),
+
   actions: {
     closeCart() {
       this.element.classList.remove('shopping-cart--visible');
