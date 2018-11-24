@@ -17,7 +17,7 @@
         <p class="shopping-cart__item__amount">Quantidade: {{item.amount}}</p>
       </div>
 
-      {{format-currency item.currencyFormat item.price "shopping-cart__item"}}
+      {{format-currency item.currencyFormat item.price "shopping-cart__item__"}}
 
       <div class="shopping-cart__item-overlay">
         <span class="shopping-cart__item__delete" {{action "deleteItem" item}}>+</span>
