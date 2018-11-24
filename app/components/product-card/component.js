@@ -7,6 +7,15 @@ export default Component.extend({
   classNames: ['product-card'],
   cart: service('shopping-cart'),
 
+  didInsertElement() {
+    let className = 'product-card-available-sizes';
+    let availableSizes = this.element.querySelector(`.${className}`);
+
+    this.element.addEventListener('mouseleave', () => {
+      availableSizes.classList.remove(`${className}--visible`)
+    });
+  },
+
   price: computed('product.price', function() {
     return this.product.price.toFixed(2);
   }),
@@ -28,9 +37,10 @@ export default Component.extend({
     },
 
     displaySizes() {
-      let availableSizes = this.element.querySelector('.product-card-available-sizes');
+      let className = 'product-card-available-sizes';
+      let availableSizes = this.element.querySelector(`.${className}`);
 
-      availableSizes.classList.add('product-card-available-sizes--visible');
+      availableSizes.classList.add(`${className}--visible`);
     }
   }
 });
