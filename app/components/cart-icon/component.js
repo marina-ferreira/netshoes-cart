@@ -9,5 +9,9 @@ export default Component.extend({
 
   counter: computed('cart.items.[]', function() {
     return this.cart.items.length;
+  }),
+
+  imgSrc: computed('white', function() {
+    return this.white ? 'img/bag.png' : 'img/bag-black.png'
   })
 });

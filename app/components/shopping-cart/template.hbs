@@ -1,0 +1,33 @@
+<header class="shopping-cart-header">
+  {{cart-icon white=true}}
+
+  <span class="shopping-cart__title">Sacola</span>
+</header>
+
+<ul class="shopping-cart__list">
+  {{#each cart.items as |item|}}
+    <li class="shopping-cart__item">
+      <img src="img/product-image.jpg" class="shopping-cart__item__image" alt="Product Image">
+
+      <div class="shopping-cart__item-wrapper">
+        <p class="shopping-cart__item__title">{{item.title}}</p>
+        <p class="shopping-cart__item__size">{{item.size}}</p>
+        <p class="shopping-cart__item__style">{{item.style}}</p>
+        <p class="shopping-cart__item__amount">{{item.amount}}</p>
+      </div>
+
+      <p class="shopping-cart__item__price">{{item.price}}</p>
+    </li>
+  {{/each}}
+</ul>
+
+<div class="shopping-cart-total">
+  <p class="shopping-cart-total__title">Subtotal</p>
+
+  <div class="shopping-cart-total-price">
+    <p class="shopping-cart-total__value">R$ 379,90</p>
+    <p class="shopping-cart-total__installments">ou em até 10 x R$ 37,99</p>
+  </div>
+</div>
+
+<button class="shopping-cart__button">Comprar</button>
