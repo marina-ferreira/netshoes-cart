@@ -25,6 +25,12 @@ export default Component.extend({
   actions: {
     addToCart() {
       this.cart.add(this.product);
+    },
+
+    displaySizes() {
+      let availableSizes = this.element.querySelector('.product-card-available-sizes');
+
+      availableSizes.classList.add('product-card-available-sizes--visible');
     }
   }
 });

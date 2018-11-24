@@ -5,7 +5,13 @@
     alt="Product Image"
   >
 
-  <button class="product-card__button" {{action "addToCart"}}>Comprar</button>
+  <button class="product-card__button" {{action "displaySizes"}}>Comprar</button>
+
+  <div class="product-card-available-sizes">
+    {{#each product.availableSizes as |size|}}
+      <button class="product-card__size" {{action "addToCart" size}}>{{size}}</button>
+    {{/each}}
+  </div>
 </div>
 
 <p class="product-card__title">{{product.title}}</p>
