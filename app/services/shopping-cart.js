@@ -26,7 +26,7 @@ export default Service.extend({
       return addedProduct.set('amount', amount);
     }
 
-    let item = this.store.createRecord('item', product.get('data'));
+    let item = this.store.createRecord('item', product.toJSON());
     item.setProperties({chosenSize: size, amount: 1});
 
     this.items.pushObject(item);
