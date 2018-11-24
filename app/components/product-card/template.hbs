@@ -20,4 +20,6 @@
 
 {{format-currency product.currencyFormat product.price "product-card__"}}
 
-<span class="product-card__installments">{{installments}}</span>
+<span class="product-card__installments">
+  {{format-installments product.price product.installments product.currencyFormat}}
+</span>

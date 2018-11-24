@@ -31,7 +31,10 @@
 
   <div class="shopping-cart-total-wrapper">
     {{format-currency "R$" totalPrice "shopping-cart-total__"}}
-    <p class="shopping-cart-total__installments">ou em até 10 x R$ 37,99</p>
+
+    <p class="shopping-cart-total__installments">
+      {{format-installments totalPrice 10 "R$"}}
+    </p>
   </div>
 </div>
 
