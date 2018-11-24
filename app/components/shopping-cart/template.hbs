@@ -1,4 +1,4 @@
-<span class="shopping-cart__close" {{action "closeCart"}}>+</span>
+<button class="shopping-cart__close" {{action "closeCart"}}>+</button>
 
 <header class="shopping-cart-header">
   {{cart-icon white=true}}
@@ -9,7 +9,11 @@
 <ul class="shopping-cart__list">
   {{#each cart.items as |item|}}
     <li class="shopping-cart__item">
-      <img src="img/product-image.jpg" class="shopping-cart__item__image" alt="Product Image">
+      <img
+        src="img/product-image.jpg"
+        class="shopping-cart__item__image"
+        alt="Product Image"
+      >
 
       <div class="shopping-cart__item-wrapper">
         <p class="shopping-cart__item__title">{{item.title}} {{item.description}}</p>
@@ -20,7 +24,7 @@
       {{format-currency item.currencyFormat item.price "shopping-cart__item__"}}
 
       <div class="shopping-cart__item-overlay">
-        <span class="shopping-cart__item__delete" {{action "deleteItem" item}}>+</span>
+        <button class="shopping-cart__item__delete" {{action "deleteItem" item}}>+</button>
       </div>
     </li>
   {{/each}}
