@@ -4,13 +4,13 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Component | product-card', function(hooks) {
   setupTest(hooks);
 
-  test('it exists', function(assert) {
+  test('it calls addToCart action', function(assert) {
     assert.expect(1);
 
     let component = this.owner.factoryFor('component:product-card').create();
 
     component.cart.add = () => {
-      assert.ok(true, 'it calls addToCart');
+      assert.ok(true, 'it calls cart service add');
     }
 
     component.send('addToCart');
