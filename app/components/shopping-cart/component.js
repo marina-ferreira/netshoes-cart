@@ -18,10 +18,6 @@ export default Component.extend({
       this.element.classList.remove('shopping-cart--visible');
     },
 
-    deleteItem(item) {
-      this.cart.remove(item);
-    },
-
     emptyCart() {
       this.cart.empty();
     }

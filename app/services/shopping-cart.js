@@ -26,7 +26,7 @@ export default Service.extend({
 
   remove(item) {
     this.items.removeObject(item);
-    item.deleteRecord();
+    item.deleteRecord && item.deleteRecord();
   },
 
   empty() {
