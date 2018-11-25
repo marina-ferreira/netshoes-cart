@@ -9,7 +9,7 @@ module('Unit | Helper | format-currency', function(hooks) {
     assert.expect(5);
 
     let [value, currency, className] = [249, 'R$', 'product-card__'];
-    let result = formatCurrency({value: value, currency: currency, className: className});
+    let result = formatCurrency([], {value: value, currency: currency, className: className});
 
     assert.ok(result.classList.contains(`${className}price`), 'it has a wrapper element');
     assert.ok(result.children[0].classList.contains(`${className}currency`), 'it adds currency class');
@@ -22,7 +22,7 @@ module('Unit | Helper | format-currency', function(hooks) {
     assert.expect(3);
 
     let [value, currency] = [249, 'R$'];
-    let result = formatCurrency({value: value, currency: currency});
+    let result = formatCurrency([], {value: value, currency: currency});
 
     assert.ok(result.classList.contains('price'), 'it adds class to wrapper element');
     assert.ok(result.children[0].classList.contains('currency'), 'it adds class to currency element');
@@ -32,7 +32,7 @@ module('Unit | Helper | format-currency', function(hooks) {
   test('it returns general symbol when currency is missing', function(assert) {
     assert.expect(1);
 
-    let result = formatCurrency({value: 249});
+    let result = formatCurrency([], {value: 249});
 
     assert.equal(result.children[0].textContent, '$','it adds $ symbol');
   });
@@ -40,7 +40,7 @@ module('Unit | Helper | format-currency', function(hooks) {
   test('it returns zero when value is missing', function(assert) {
     assert.expect(1);
 
-    let result = formatCurrency({});
+    let result = formatCurrency([], {});
 
     assert.equal(result.children[1].textContent, '0.00','it returns 0.00');
   });
