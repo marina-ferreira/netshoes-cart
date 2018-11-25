@@ -20,6 +20,10 @@ export default Component.extend({
 
     deleteItem(item) {
       this.cart.remove(item);
+    },
+
+    emptyCart() {
+      this.cart.empty();
     }
   }
 });

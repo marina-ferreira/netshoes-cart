@@ -6,6 +6,12 @@
   <span class="shopping-cart__title">Sacola</span>
 </header>
 
+<div class="shopping-cart-button-wrapper">
+  <button class="shopping-cart__empty-cart" {{action "emptyCart"}}>
+    Esvaziar Carrinho
+  </button>
+</div>
+
 <ul class="shopping-cart__list">
   {{#each cart.items as |item|}}
     <li class="shopping-cart__item">

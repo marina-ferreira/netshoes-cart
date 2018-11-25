@@ -39,5 +39,6 @@ export default Service.extend({
 
   empty() {
     this.items.clear();
+    this.store.unloadAll('item');
   }
 });
