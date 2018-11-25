@@ -14,29 +14,7 @@
 
 <ul class="shopping-cart__list">
   {{#each cart.items as |item|}}
-    <li class="shopping-cart__item">
-      <img
-        src={{item.image}}
-        class="shopping-cart__item__image"
-        alt="Product Image"
-      >
-
-      <div class="shopping-cart__item-wrapper">
-        <p class="shopping-cart__item__title">{{item.title}} {{item.description}}</p>
-        <span class="shopping-cart__item__details">{{item.chosenSize}} | {{item.style}}</span>
-        <p class="shopping-cart__item__amount">Quantidade: {{item.amount}}</p>
-      </div>
-
-      {{format-currency
-        currency=item.currencyFormat
-        value=item.price
-        className="shopping-cart__item__"
-      }}
-
-      <div class="shopping-cart__item-overlay">
-        <button class="shopping-cart__item__delete" {{action "deleteItem" item}}>+</button>
-      </div>
-    </li>
+    {{shopping-cart-item item=item}}
   {{/each}}
 </ul>
 

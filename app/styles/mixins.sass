@@ -1,0 +1,23 @@
+@mixin purpleButton
+    color: #fff
+    cursor: pointer
+    transition: transform .4s ease, background .3s
+    border-radius: 5px
+    border: 2px solid #5f2a7d
+    background: #5f2a7d
+
+@mixin xButton
+  color: #fff
+  position: absolute
+  top: 5px
+  right: 20px
+  transform: rotate(45deg)
+  font-size: 28px
+  cursor: pointer
+  transition: all .3s
+
+  &:hover
+      color: #db0707
+
+  &:active
+    color: #fff

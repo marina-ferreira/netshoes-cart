@@ -1,0 +1,21 @@
+<img
+  src={{item.image}}
+  class="shopping-cart-item__image"
+  alt="Product Image"
+>
+
+<div class="shopping-cart-item-wrapper">
+  <p class="shopping-cart-item__title">{{item.title}} {{item.description}}</p>
+  <span class="shopping-cart-item__details">{{item.chosenSize}} | {{item.style}}</span>
+  <p class="shopping-cart-item__amount">Quantidade: {{item.amount}}</p>
+</div>
+
+{{format-currency
+  currency=item.currencyFormat
+  value=item.price
+  className="shopping-cart-item__"
+}}
+
+<div class="shopping-cart-item-overlay">
+  <button class="shopping-cart-item__delete" {{action "deleteItem" item}}>+</button>
+</div>

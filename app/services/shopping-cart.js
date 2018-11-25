@@ -21,24 +21,30 @@ export default Service.extend({
       return item.sku === product.sku && item.chosenSize === size;
     });
 
-    if (addedProduct) {
-      let amount = addedProduct.amount + 1;
-      return set(addedProduct, 'amount', amount);
-    }
-
-    let item = this.store.createRecord('item', product.toJSON());
-    item.setProperties({chosenSize: size, amount: 1});
-
-    this.items.pushObject(item);
+    addedProduct ? this._increaseAmount(addedProduct) : this._pushToCart(product, size);
   },
 
   remove(item) {
     this.items.removeObject(item);
-    item.deleteRecord();
+    item.deleteRecord && item.deleteRecord();
   },
 
   empty() {
     this.items.clear();
     this.store.unloadAll('item');
+  },
+
+  // private
+
+  _increaseAmount(product) {
+    let amount = product.amount + 1;
+    set(product, 'amount', amount);
+  },
+
+  _pushToCart(product, size) {
+    let item = this.store.createRecord('item', product.toJSON());
+    item.setProperties({chosenSize: size, amount: 1});
+
+    this.items.pushObject(item);
   }
 });
