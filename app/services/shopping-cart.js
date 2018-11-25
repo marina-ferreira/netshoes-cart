@@ -1,6 +1,6 @@
 import Service from '@ember/service';
 import { inject as service } from '@ember/service';
-import { observer } from '@ember/object';
+import { observer, set } from '@ember/object';
 
 export default Service.extend({
   store: service(),
@@ -23,7 +23,7 @@ export default Service.extend({
 
     if (addedProduct) {
       let amount = addedProduct.amount + 1;
-      return addedProduct.set('amount', amount);
+      return set(addedProduct, 'amount', amount);
     }
 
     let item = this.store.createRecord('item', product.toJSON());
