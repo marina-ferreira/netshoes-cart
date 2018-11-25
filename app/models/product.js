@@ -10,5 +10,6 @@ export default DS.Model.extend({
   installments: DS.attr('number'),
   currencyId: DS.attr('string'),
   currencyFormat: DS.attr('string'),
-  isFreeShipping: DS.attr('boolean')
+  isFreeShipping: DS.attr('boolean'),
+  image: DS.attr('string')
 });

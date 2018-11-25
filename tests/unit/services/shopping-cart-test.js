@@ -41,7 +41,7 @@ module('Unit | Service | shopping-cart', function(hooks) {
   test('it removes an item from cart', function(assert) {
     assert.expect(2);
 
-    this.service.add(this.product);
+    this.service.add(this.product, 'S');
 
     let itemList = this.store.peekAll('item');
     let item = itemList.find(item => item.sku === this.product.sku);
@@ -55,7 +55,7 @@ module('Unit | Service | shopping-cart', function(hooks) {
   test('it stores cart items in local storage', function(assert) {
     assert.expect(1);
 
-    this.service.add(this.product);
+    this.service.add(this.product, 'S');
 
     let itemList = this.store.peekAll('item');
     let item = itemList.find(item => item.sku === this.product.sku);
@@ -67,7 +67,7 @@ module('Unit | Service | shopping-cart', function(hooks) {
   test('it removes cart items from local storage', function(assert) {
     assert.expect(2);
 
-    this.service.add(this.product);
+    this.service.add(this.product, 'S');
 
     let itemList = this.store.peekAll('item');
     let item = itemList.find(item => item.sku === this.product.sku);
@@ -79,5 +79,17 @@ module('Unit | Service | shopping-cart', function(hooks) {
     storageItems = JSON.parse(window.localStorage.getItem('shoppingCart'));
 
     assert.equal(storageItems.length, 0, 'it removes item from local storage');
+  });
+
+  test('it empties cart', function(assert) {
+    assert.expect(2);
+
+    this.service.add(this.product, 'S');
+    this.service.add(this.product, 'L');
+
+    assert.equal(this.service.items.length, 2, 'it adds items');
+
+    this.service.empty();
+    assert.equal(this.service.items.length, 0, 'it empties cart');
   });
 });

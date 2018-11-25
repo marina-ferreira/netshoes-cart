@@ -9,9 +9,8 @@ module('Unit | Component | product-card', function(hooks) {
 
     let component = this.owner.factoryFor('component:product-card').create();
 
-    component.cart.add = () => {
-      assert.ok(true, 'it calls cart service add');
-    }
+    component.cart.add = () => assert.ok(true, 'it calls cart service add');
+    component._flyImagetoCart = () => {}
 
     component.send('addToCart');
   });

@@ -20,7 +20,6 @@ module('Unit | Component | shopping-cart', function(hooks) {
     assert.expect(1);
 
     let component = this.owner.factoryFor('component:shopping-cart').create();
-
     this.cartService.add(this.product, 'S');
 
     assert.equal(component.totalPrice, this.product.price, 'it updates totalPrice');
@@ -30,11 +29,17 @@ module('Unit | Component | shopping-cart', function(hooks) {
     assert.expect(1);
 
     let component = this.owner.factoryFor('component:shopping-cart').create();
-
-    component.cart.remove = () => {
-      assert.ok(true, 'it calls cart service remove');
-    }
+    component.cart.remove = () => assert.ok(true, 'it calls cart service remove');
 
     component.send('deleteItem');
+  });
+
+  test('it calls emptyCart action', function(assert) {
+    assert.expect(1);
+
+    let component = this.owner.factoryFor('component:shopping-cart').create();
+    component.cart.empty = () => assert.ok(true, 'it calls cart service empty');
+
+    component.send('emptyCart');
   });
 });
