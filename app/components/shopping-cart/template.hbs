@@ -21,7 +21,11 @@
         <p class="shopping-cart__item__amount">Quantidade: {{item.amount}}</p>
       </div>
 
-      {{format-currency item.currencyFormat item.price "shopping-cart__item__"}}
+      {{format-currency
+        currency=item.currencyFormat
+        value=item.price
+        className="shopping-cart__item__"
+      }}
 
       <div class="shopping-cart__item-overlay">
         <button class="shopping-cart__item__delete" {{action "deleteItem" item}}>+</button>
@@ -34,10 +38,18 @@
   <p class="shopping-cart-total__title">Subtotal</p>
 
   <div class="shopping-cart-total-wrapper">
-    {{format-currency "R$" totalPrice "shopping-cart-total__"}}
+    {{format-currency
+      currency="R$"
+      value=totalPrice
+      className="shopping-cart-total__"
+    }}
 
     <p class="shopping-cart-total__installments">
-      {{format-installments totalPrice 10 "R$"}}
+      {{format-installments
+        totalPrice=totalPrice
+        installments=10
+        currency="R$"
+      }}
     </p>
   </div>
 </div>

@@ -18,12 +18,16 @@
 
 <span class="product-card__separator"></span>
 
-{{format-currency product.currencyFormat product.price "product-card__"}}
+{{format-currency
+  currency=product.currencyFormat
+  value=product.price
+  className="product-card__"
+}}
 
 <span class="product-card__installments">
   {{format-installments
-    product.price
-    product.installments
-    product.currencyFormat
+    totalPrice=product.price
+    installments=product.installments
+    currency=product.currencyFormat
   }}
 </span>
