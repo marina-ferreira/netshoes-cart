@@ -1,5 +1,11 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<header class="app-header">
+  <img src="img/logo.png" alt="Netshoes Logo" class="logo">
 
-{{outlet}}
+  {{cart-icon}}
+</header>
+
+<div class="container">
+  {{outlet}}
+</div>
+
+{{shopping-cart}}

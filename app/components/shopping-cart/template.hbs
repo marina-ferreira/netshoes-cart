@@ -1,0 +1,57 @@
+<button class="shopping-cart__close" {{action "closeCart"}}>+</button>
+
+<header class="shopping-cart-header">
+  {{cart-icon white=true}}
+
+  <span class="shopping-cart__title">Sacola</span>
+</header>
+
+<ul class="shopping-cart__list">
+  {{#each cart.items as |item|}}
+    <li class="shopping-cart__item">
+      <img
+        src="img/product-image.jpg"
+        class="shopping-cart__item__image"
+        alt="Product Image"
+      >
+
+      <div class="shopping-cart__item-wrapper">
+        <p class="shopping-cart__item__title">{{item.title}} {{item.description}}</p>
+        <span class="shopping-cart__item__details">{{item.chosenSize}} | {{item.style}}</span>
+        <p class="shopping-cart__item__amount">Quantidade: {{item.amount}}</p>
+      </div>
+
+      {{format-currency
+        currency=item.currencyFormat
+        value=item.price
+        className="shopping-cart__item__"
+      }}
+
+      <div class="shopping-cart__item-overlay">
+        <button class="shopping-cart__item__delete" {{action "deleteItem" item}}>+</button>
+      </div>
+    </li>
+  {{/each}}
+</ul>
+
+<div class="shopping-cart-total">
+  <p class="shopping-cart-total__title">Subtotal</p>
+
+  <div class="shopping-cart-total-wrapper">
+    {{format-currency
+      currency="R$"
+      value=totalPrice
+      className="shopping-cart-total__"
+    }}
+
+    <p class="shopping-cart-total__installments">
+      {{format-installments
+        totalPrice=totalPrice
+        installments=10
+        currency="R$"
+      }}
+    </p>
+  </div>
+</div>
+
+<button class="shopping-cart__button">Comprar</button>

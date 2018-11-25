@@ -1,0 +1,33 @@
+<div class="product-card-action">
+  <img
+    src="img/product-image.jpg"
+    class="product-card__image"
+    alt="Product Image"
+  >
+
+  <button class="product-card__button" {{action "displaySizes"}}>Comprar</button>
+
+  <div class="product-card-available-sizes">
+    {{#each product.availableSizes as |size|}}
+      <button class="product-card__size" {{action "addToCart" size}}>{{size}}</button>
+    {{/each}}
+  </div>
+</div>
+
+<p class="product-card__title">{{product.title}}</p>
+
+<span class="product-card__separator"></span>
+
+{{format-currency
+  currency=product.currencyFormat
+  value=product.price
+  className="product-card__"
+}}
+
+<span class="product-card__installments">
+  {{format-installments
+    totalPrice=product.price
+    installments=product.installments
+    currency=product.currencyFormat
+  }}
+</span>
