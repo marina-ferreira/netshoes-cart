@@ -16,15 +16,26 @@ module('Unit | Service | shopping-cart', function(hooks) {
     this.service.set('items', []);
   });
 
-  test('it adds an item to cart', function(assert) {
-    assert.expect(1);
+  module('when an item is added to cart', function() {
+    test('it updates items array', function(assert) {
+      assert.expect(1);
 
-    this.service.add(this.product, 'S');
+      this.service.add(this.product, 'S');
 
-    let itemList = this.store.peekAll('item');
-    let item = itemList.find(item => item.sku === this.product.sku);
+      let itemList = this.store.peekAll('item');
+      let item = itemList.find(item => item.sku === this.product.sku);
 
-    assert.equal(this.service.items[0], item, 'it adds item to cart');
+      assert.equal(this.service.items[0], item, 'it adds item to cart');
+    });
+
+    test('it updates item amount if item is already in cart', function(assert) {
+      assert.expect(1);
+
+      this.service.add(this.product, 'S');
+      this.service.add(this.product, 'S');
+
+      assert.equal(this.service.items[0].amount, 2, 'it updates item amount');
+    });
   });
 
   test('it removes an item from cart', function(assert) {
