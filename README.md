@@ -16,8 +16,8 @@
 ## Running / Development
 
 * `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+* Visit your app at [http://localhost:4200/products](http://localhost:4200/products)
+* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests)
 
 ### Running Tests
 
